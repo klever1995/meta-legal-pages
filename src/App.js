@@ -1,11 +1,16 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { HashRouter, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 
-function Layout({ title, children }) {
+function Home() {
   return (
     <div className="container">
-      <h1>{title}</h1>
-      <div className="content">{children}</div>
+      <h1>Empresa AI Platform</h1>
+
+      <p>
+        Plataforma enfocada en automatización, integración con WhatsApp
+        Business, generación de campañas y herramientas empresariales
+        impulsadas por inteligencia artificial.
+      </p>
 
       <div className="links">
         <Link to="/privacy">Política de Privacidad</Link>
@@ -16,66 +21,63 @@ function Layout({ title, children }) {
   );
 }
 
-function Home() {
-  return (
-    <Layout title="Empresa AI Platform">
-      <p>
-        Plataforma enfocada en automatización, integración con WhatsApp Business,
-        generación de campañas y herramientas empresariales impulsadas por IA.
-      </p>
-    </Layout>
-  );
-}
-
 function Privacy() {
   return (
-    <Layout title="Política de Privacidad">
+    <div className="container">
+      <h1>Política de Privacidad</h1>
+
       <p>
         Empresa AI Platform recopila únicamente la información necesaria para
-        ofrecer servicios de automatización, mensajería y gestión empresarial.
+        proporcionar servicios de automatización, integración con WhatsApp
+        Business y herramientas empresariales.
       </p>
 
       <p>
-        La información proporcionada por los usuarios se utiliza exclusivamente
-        para autenticación, comunicación mediante WhatsApp Business y mejora de
-        nuestros servicios.
+        La información proporcionada por los usuarios se utiliza únicamente
+        para autenticación, comunicación y funcionamiento correcto de la
+        plataforma.
       </p>
 
       <p>
-        No vendemos información personal a terceros. Los datos se almacenan de
-        forma segura y pueden eliminarse previa solicitud del usuario.
+        No compartimos ni vendemos datos personales a terceros. Los usuarios
+        pueden solicitar la eliminación de sus datos en cualquier momento.
       </p>
-    </Layout>
+    </div>
   );
 }
 
 function Terms() {
   return (
-    <Layout title="Términos y Condiciones">
+    <div className="container">
+      <h1>Términos y Condiciones</h1>
+
       <p>
-        Al utilizar Empresa AI Platform, aceptas el uso responsable de nuestros
-        servicios y herramientas.
+        Al utilizar Empresa AI Platform, aceptas utilizar la plataforma de
+        manera responsable y conforme a las políticas de Meta y WhatsApp.
       </p>
 
       <p>
-        Está prohibido utilizar la plataforma para spam, fraude, actividades
-        ilegales o incumplimiento de políticas de Meta y WhatsApp.
+        Está prohibido utilizar nuestros servicios para spam, fraude,
+        actividades ilegales o cualquier actividad que incumpla las políticas
+        de plataformas externas.
       </p>
 
       <p>
-        Nos reservamos el derecho de suspender accesos que incumplan nuestras
-        políticas o afecten la seguridad del sistema.
+        Nos reservamos el derecho de suspender cuentas o accesos que violen
+        estas condiciones.
       </p>
-    </Layout>
+    </div>
   );
 }
 
 function DeleteData() {
   return (
-    <Layout title="Eliminación de Datos">
+    <div className="container">
+      <h1>Eliminación de Datos</h1>
+
       <p>
-        Los usuarios pueden solicitar la eliminación de sus datos personales y
-        de integración enviando una solicitud al correo:
+        Los usuarios pueden solicitar la eliminación de sus datos personales
+        enviando una solicitud al correo:
       </p>
 
       <p>
@@ -83,23 +85,23 @@ function DeleteData() {
       </p>
 
       <p>
-        Las solicitudes serán procesadas en un plazo razonable conforme a las
-        políticas de privacidad aplicables.
+        Las solicitudes serán procesadas dentro de un plazo razonable según
+        las políticas aplicables.
       </p>
-    </Layout>
+    </div>
   );
 }
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/delete-data" element={<DeleteData />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
